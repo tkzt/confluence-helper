@@ -1,0 +1,4 @@
+{
+    ".shiki": "background-color: #f6f8fa !important;padding: 6px 12px;border-radius: 5px;margin: 10px 0;overflow: auto;",
+    "p code": "padding: 2px 4px; border-radius: 4px; color: #c7254e !important;background-color: #f9f2f4 !important;font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,Liberation Mono, monospace;"
+}
