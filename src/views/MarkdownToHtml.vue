@@ -63,7 +63,7 @@ const copied = ref(false);
 
 async function md2Html(mdStr) {
   loading.value = true;
-  setCDN('https://unpkg.com/shiki/');
+  setCDN(process.env.NODE_ENV === 'development' ? 'https://unpkg.com/shiki/' : 'https://boring-plans.github.io/confluence-helper/shiki/');
   const highlighter = await getHighlighter({
     theme: 'github-light',
   });
