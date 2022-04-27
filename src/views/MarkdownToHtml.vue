@@ -86,6 +86,9 @@ async function md2Html(mdStr) {
         elem.style = value;
       });
     });
+    Array.from(resultRef.value.querySelectorAll('img')).forEach((elem) => {
+      elem.style.maxWidth = '100%';
+    });
   });
 }
 
