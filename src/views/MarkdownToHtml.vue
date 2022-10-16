@@ -63,21 +63,34 @@ const copied = ref(false);
 
 async function md2Html(mdStr) {
   loading.value = true;
-  setCDN('https://unpkg.com/shiki/');
+  setCDN('https://cdn.jsdelivr.net/npm/shiki/');
 
+  // get all langs needed
+  const langs = [];
+  new MarkdownIt({
+    html: true,
+    highlight(_, lang) {
+      langs.push(lang);
+      return '';
+    },
+  }).render(mdStr);
+
+  const highlighter = await getHighlighter({
+    theme: 'github-light',
+    langs,
+  });
   const md = new MarkdownIt({
+    html: true,
     highlight(str, lang) {
       try {
-        const highlighter = await getHighlighter({
-          theme: 'github-light',
-          lang: [lang]
-        });
         return highlighter.codeToHtml(str, { lang });
-      } catch (_) {
+      } catch (err) {
+        console.error(err);
         return '';
       }
     },
   });
+
   loading.value = false;
 
   nextTick(() => {
