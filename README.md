@@ -1,24 +1,7 @@
-# confluence-helper
+# Confluence Helper
 
-## Project setup
-```
-yarn install
-```
+This is a vue3 app used to help confluence writing.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+Currently, provide the function rendering md-file to HTML, which is based on arkdown-it & shiki (which can render highlighted code blocks to inline styled HTML).
 
-### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
