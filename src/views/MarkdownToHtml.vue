@@ -64,13 +64,14 @@ const copied = ref(false);
 async function md2Html(mdStr) {
   loading.value = true;
   setCDN('https://unpkg.com/shiki/');
-  const highlighter = await getHighlighter({
-    theme: 'github-light',
-  });
 
   const md = new MarkdownIt({
     highlight(str, lang) {
       try {
+        const highlighter = await getHighlighter({
+          theme: 'github-light',
+          lang: [lang]
+        });
         return highlighter.codeToHtml(str, { lang });
       } catch (_) {
         return '';
