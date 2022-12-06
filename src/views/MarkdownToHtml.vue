@@ -66,11 +66,13 @@ async function md2Html(mdStr) {
   setCDN('https://cdn.jsdelivr.net/npm/shiki/');
 
   // get all langs needed
-  const langs = [];
+  const langs = ['html', 'js', 'css'];
   new MarkdownIt({
     html: true,
     highlight(_, lang) {
-      langs.push(lang);
+      if (!langs.includes(lang)) {
+        langs.push(lang);
+      }
       return '';
     },
   }).render(mdStr);
