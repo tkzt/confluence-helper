@@ -71,7 +71,9 @@ async function md2Html(mdStr) {
     html: true,
     highlight(_, lang) {
       if (!langs.includes(lang)) {
-        langs.push(lang);
+        if (lang) {
+          langs.push(lang);
+        }
       }
       return '';
     },
